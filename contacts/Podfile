@@ -1,0 +1,25 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'contacts' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for contacts
+  # Design
+    pod 'RxSwift'
+    pod 'RxCocoa'
+    pod 'RxGesture'
+
+    # Data Sources
+    pod 'RxDataSources'
+
+    # Network
+    pod 'Alamofire'
+    pod 'Kingfisher'
+    
+    #Alert
+    pod 'SwiftMessages'
+
+
+end
