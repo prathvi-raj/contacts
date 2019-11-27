@@ -2,20 +2,38 @@
 //  AppDelegate.swift
 //  contacts
 //
-//  Created by GameChange on 06/09/19.
+//  Created by prathvi on 06/09/19.
 //  Copyright © 2019 Langtango. All rights reserved.
 //
 
 import UIKit
+import RxSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    
+    private var appCoordinator: AppCoordinator?
+    private let disposeBag = DisposeBag()
+    
+    private let navigationController: UINavigationController = {
+        let navigationController = UINavigationController()
+        navigationController.navigationBar.isTranslucent = false
+        return navigationController
+    }()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = navigationController
+        appCoordinator = AppCoordinator(window: window!, navigationController: navigationController)
+        appCoordinator?.start()
+            .subscribe()
+            .disposed(by: disposeBag)
+        window?.makeKeyAndVisible()
+        
         return true
     }
 

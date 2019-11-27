@@ -16,10 +16,12 @@ target 'contacts' do
 
     # Network
     pod 'Alamofire'
+    pod 'RxAlamofire'
     pod 'Kingfisher'
     
     #Alert
     pod 'SwiftMessages'
 
-
+    # Activity Indicator
+    pod 'MBProgressHUD'
 end
